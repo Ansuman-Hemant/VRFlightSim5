@@ -29,7 +29,7 @@ public static class Utility
 
     public static float mpsToKnots(float speed)
     {
-        return speed * 1.9438f;
+        return speed * 0.66f;
     }
 
     public static float PaToInchesOfMercury(float pascals)
