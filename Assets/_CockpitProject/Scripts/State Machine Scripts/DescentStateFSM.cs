@@ -20,7 +20,7 @@ public class DescentStateFSM : FlightFSM
     public override void Update(float dt)
     {
         //if (Weather.GetAltitude(planeRb.position.y) < flightValues.ApproachAltitude)
-        if (flightValues.Altitude < flightValues.ApproachAltitude)
+        if (flightValues.GetAltitude() < flightValues.ApproachAltitude)
         {
             UpdateState();
         }

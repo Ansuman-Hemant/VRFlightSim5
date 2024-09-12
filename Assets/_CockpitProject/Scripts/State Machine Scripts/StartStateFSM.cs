@@ -16,7 +16,7 @@ public class StartStateFSM : FlightFSM
 
     public override void Update(float dt)
     {
-        if (flightValues.GetPlaneVelocityInKnots(planeRb) > flightValues.TakeOffSpeed)
+        if (flightValues.GetPlaneVelocityInKnots() > flightValues.TakeOffSpeed)
         {
             UpdateState();
         }

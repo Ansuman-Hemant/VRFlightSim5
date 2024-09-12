@@ -11,7 +11,7 @@ public class LandingStateFSM : FlightFSM
 
     public override void Update(float dt)
     {
-        if (flightValues.GetPlaneVelocityInKnots(planeRb) <= 0)
+        if (flightValues.GetPlaneVelocityInKnots() <= 0.05f) // 0, but account for error
         {
             UpdateState();
         }

@@ -34,21 +34,33 @@ public class FlightValuesSO : ScriptableObject
     /// </summary>
     public int LandAltitude = 5;
 
-    [Header("DEBUGGING")]
-    public float Altitude = 0;
-    public float Speed = 0;
+    //[Header("DEBUGGING")]
+    //public float Altitude = 0;
+    //public float Speed = 0;
+
+    Rigidbody planeRb;
+
+    public void Initialize(Rigidbody planeRb)
+    {
+        this.planeRb = planeRb;
+    }
 
     /// <summary>
     /// Returns velocity in m/s
     /// </summary>
-    public float GetPlaneVelocity(Rigidbody rb)
+    public float GetPlaneVelocity()
     {
-        return rb.velocity.magnitude * Weather.speedMultiplier;
+        return planeRb.velocity.magnitude * Weather.speedMultiplier;
     }
 
-    public float GetPlaneVelocityInKnots(Rigidbody rb)
+    public float GetPlaneVelocityInKnots()
     {
-        return Speed;
-        //return Utility.mpsToKnots(GetPlaneVelocity(rb));
+        //return Speed;
+        return Utility.mpsToKnots(GetPlaneVelocity());
+    }
+
+    public float GetAltitude()
+    {
+        return Weather.GetAltitude(planeRb.position.y);
     }
 }

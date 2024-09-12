@@ -17,8 +17,8 @@ public class CruiseStateFSM : FlightFSM
 
     public override void Update(float dt)
     {
-        //if (Weather.GetAltitude(planeRb.position.y) < flightValues.AltitudeBeforeSlippingDownToClimb)
-        if (flightValues.Altitude < flightValues.AltitudeBeforeSlippingDownToClimb)
+        // If your altitude lowers before you press autopilot, it goes back to climb state and tells you to go back up into cruise
+        if (flightValues.GetAltitude() < flightValues.AltitudeBeforeSlippingDownToClimb)
         {
             stateManager.SwitchState(State.Climb);
         }
@@ -36,6 +36,9 @@ public class CruiseStateFSM : FlightFSM
         autoPilotCountdown = new CountDownTimer(autopilotDuration);
         autoPilotCountdown.OnTimerStart += () => startedCountDown = true;
         autoPilotCountdown.OnTimerStop += UpdateState;
+
+        // Leave it commented. If uncommented, it will automatically go to Descent state after 5 seconds even if you don't press autopilot
+        //autoPilotCountdown.Start();
     }
 
     public override void UpdateState()

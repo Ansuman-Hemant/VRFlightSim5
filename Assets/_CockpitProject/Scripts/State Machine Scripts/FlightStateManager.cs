@@ -36,8 +36,10 @@ public class FlightStateManager : MonoBehaviour
     [SerializeField] FlightValuesSO flightValues;
     [SerializeField] Rigidbody planeRb;
 
-    [Header("Debugging - Don't change")]
+    [Header("Debugging")]
     [SerializeField] State currentState;
+
+    State currentStateBackup;
 
     public static Observer<State> CurrentState { get; private set; } = new(State.Start);
 
@@ -46,6 +48,8 @@ public class FlightStateManager : MonoBehaviour
         InitializeStateScripts();
         InitializeDictionary();
         SwitchState(State.Start);
+
+        flightValues.Initialize(planeRb);
     }
 
     void Update()
@@ -83,11 +87,21 @@ public class FlightStateManager : MonoBehaviour
     public void SwitchState(State nextState)
     {
         currentState = nextState;
+        currentStateBackup = currentState;
         CurrentState.Value = currentState;
 
         currentStateScript = stateMap[currentState];
 
         if (currentStateScript != null)
             currentStateScript.InitState();
+    }
+
+    private void OnValidate()
+    {
+        if (currentState != currentStateBackup)
+        {
+            // Switch to the state if it's been changed in the inspector
+            SwitchState(currentState);
+        }
     }
 }

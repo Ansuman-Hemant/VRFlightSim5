@@ -16,8 +16,9 @@ public class AirplaneController : MonoBehaviour
     [SerializeField] float yawControlSensitivity = 0.2f;
     //[SerializeField] float thrustControlSensitivity = 0.01f;
     [SerializeField] float flapControlSensitivity = 0.15f;
+    [SerializeField] Joystick joystick;
 
-    [Header("Caps")]
+    //[Header("Caps")]
     //[Range(0, 100)] [SerializeField] float tooMuchAnglePitchCapPercentage = 100;
     //[Range(0, 100)] [SerializeField] float tooHighAltitudePitchCapPercentage = 100;
     //[SerializeField] float inputPitchRange = 0.25f;
@@ -104,6 +105,8 @@ public class AirplaneController : MonoBehaviour
         float inputPitch = pitchControlSensitivity * context.ReadValue<float>();
         pitch = inputPitch;
 
+        joystick.SetJoystickVal(roll, pitch);
+
         //float upperCap = 0.25f;
 
         //if (tooHigh)
@@ -118,6 +121,8 @@ public class AirplaneController : MonoBehaviour
     public void OnRollInputChanged(InputAction.CallbackContext context)
     {
         roll = rollControlSensitivity * context.ReadValue<float>();
+
+        joystick.SetJoystickVal(roll, pitch);
     }
 
     public void OnYawInputChanged(InputAction.CallbackContext context)

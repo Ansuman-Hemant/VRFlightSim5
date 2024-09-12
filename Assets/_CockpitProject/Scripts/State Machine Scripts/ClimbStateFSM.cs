@@ -22,11 +22,12 @@ public class ClimbStateFSM : FlightFSM
 
     public override void Update(float dt)
     {
-        //if (Weather.GetAltitude(planeRb.position.y) > flightValues.CruiseAltitude)
-        if (flightValues.Altitude > flightValues.CruiseAltitude)
+        if (flightValues.GetAltitude() > flightValues.CruiseAltitude)
         {
             UpdateState();
         }
+
+        // TODO - If player gets closer to airport, switch to Descent state
     }
 
     public override void InitState()

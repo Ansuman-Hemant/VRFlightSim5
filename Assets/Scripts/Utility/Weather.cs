@@ -10,11 +10,11 @@ public static class Weather
     public static float speedMultiplier = 0.5462f; // For taking off at 110 Knots: 0.8462f, for cruise speed: 2.3077f
     public static float verticalDistanceMultiplier = 5;
 
-    public static float planeStartPos;
+    public static float planeStartPosY;
 
     public static void Initialize(float planeYPos)
     {
-        planeStartPos = planeYPos;
+        planeStartPosY = planeYPos;
         speedMultiplier = takeOffSpeedMultiplier;
     }
 
@@ -23,8 +23,8 @@ public static class Weather
     /// </summary>
     public static float GetAltitude(float yPos)
     {
-        float knots = (yPos) * verticalDistanceMultiplier;
-        return knots;
+        float metres = (yPos - planeStartPosY) * verticalDistanceMultiplier;
+        return metres;
     }
 
 

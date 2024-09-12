@@ -21,8 +21,7 @@ public class TakeOffStateFSM : FlightFSM
 
     public override void Update(float dt)
     {
-        //if (Weather.GetAltitude(planeRb.position.y) > flightValues.ClimbAltitude)
-        if (flightValues.Altitude > flightValues.ClimbAltitude)
+        if (flightValues.GetAltitude() > flightValues.ClimbAltitude)
         {
             UpdateState();
         }
