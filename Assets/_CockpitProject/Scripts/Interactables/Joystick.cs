@@ -35,10 +35,13 @@ public class Joystick : MonoBehaviour
 
     void SetTargetPos(float inputX, float inputY)
     {
-        Vector2 normalizedInput = new Vector2(inputX, inputY).normalized;
-        Vector2 targetVector = normalizedInput * range;
+        Vector2 input = new Vector2(inputX, inputY);
+        Vector2 clampedInput = Vector2.ClampMagnitude(input, 1.0f);  // Clamp input to max magnitude of 1
+        Vector2 targetVector = clampedInput.normalized * clampedInput.magnitude * range;  // Scale both axes uniformly
         targetTransform.localPosition = new Vector3(targetVector.x, targetLocalYPos, targetVector.y);
     }
+
+
 
     void FaceTarget()
     {

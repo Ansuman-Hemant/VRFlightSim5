@@ -7,9 +7,11 @@ public class AirplaneController : MonoBehaviour
     public Observer<bool> Brake = new Observer<bool>(false);
     public Observer<float> ThrustPercent = new Observer<float>(0f);
 
-    [Tooltip("Difference: With a joystick, when input is 0, there's no thrust, whereas for keyboard when input is 0 it just means you're" +
-        "not holding down any button")]
-    [SerializeField] bool isKeyboard = true;
+    //[Tooltip("Difference: With a joystick, when input is 0, there's no thrust, whereas for keyboard when input is 0 it just means you're" +
+    //    "not holding down any button")]
+    //[SerializeField] bool isKeyboard = true;
+
+    [SerializeField] Thrust thrust;
 
     [SerializeField] float rollControlSensitivity = 0.2f;
     [SerializeField] float pitchControlSensitivity = 0.2f;
@@ -45,6 +47,21 @@ public class AirplaneController : MonoBehaviour
         Weather.speedMultiplier = Weather.takeOffSpeedMultiplier;
     }
 
+    private void OnEnable()
+    {
+        thrust.ThrustPercent.AddListener(OnThrustChange);
+    }
+
+    private void OnDisable()
+    {
+        thrust.ThrustPercent.RemoveListener(OnThrustChange);
+    }
+
+    void OnThrustChange(float value)
+    {
+        ThrustPercent.Value = value;
+    }
+
     void Update()
     {
         //if (Input.GetKeyDown(KeyCode.R))
@@ -63,10 +80,10 @@ public class AirplaneController : MonoBehaviour
             flapControlSensitivity *= -1;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Brake.Value = !Brake.Value;
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    Brake.Value = !Brake.Value;
+        //}
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -91,6 +108,11 @@ public class AirplaneController : MonoBehaviour
 
         //tooHigh = rb.position.y > maxAltitude;
 
+    }
+
+    public void EngageBrakes()
+    {
+        Brake.Value = true;
     }
 
     void FixedUpdate()
@@ -132,25 +154,25 @@ public class AirplaneController : MonoBehaviour
 
     public void OnThrustInputChanged(InputAction.CallbackContext context)
     {
-        float val = context.ReadValue<float>();
-        float thrustPercent = ThrustPercent.Value;
+        //float val = context.ReadValue<float>();
+        //float thrustPercent = ThrustPercent.Value;
 
-        if (isKeyboard)
-        {
-            if (val > 0)
-                thrustPercent = val;
-            else if (val < 0)
-                thrustPercent = 0;
-        }
-        else
-        {
-            if (val > 0)
-                thrustPercent = val;
-            else
-                thrustPercent = 0;
-        }
+        //if (isKeyboard)
+        //{
+        //    if (val > 0)
+        //        thrustPercent = val;
+        //    else if (val < 0)
+        //        thrustPercent = 0;
+        //}
+        //else
+        //{
+        //    if (val > 0)
+        //        thrustPercent = val;
+        //    else
+        //        thrustPercent = 0;
+        //}
 
-        ThrustPercent.Value = thrustPercent;
+        //ThrustPercent.Value = thrustPercent;
     }
 
     /// <summary>

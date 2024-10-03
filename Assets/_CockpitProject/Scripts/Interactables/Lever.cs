@@ -1,5 +1,5 @@
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+
 
 [RequireComponent(typeof(Interactable))]
 public class Lever : MonoBehaviour
@@ -12,7 +12,6 @@ public class Lever : MonoBehaviour
     int currentTarget = 0;
 
     [SerializeField] LeverType leverType;
-    [SerializeField] State invertedLeverState;
 
     RigidbodyConstraints defaultConstraints;
 

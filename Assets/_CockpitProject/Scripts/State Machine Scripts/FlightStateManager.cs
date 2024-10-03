@@ -104,4 +104,10 @@ public class FlightStateManager : MonoBehaviour
             SwitchState(currentState);
         }
     }
+
+    [ContextMenu("Update State")]
+    public void Debug_UpdateState()
+    {
+        currentStateScript.UpdateState();
+    }
 }
