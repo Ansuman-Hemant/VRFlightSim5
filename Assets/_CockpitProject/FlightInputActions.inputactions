@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActions",
+    "name": "FlightInputActions",
     "maps": [
         {
             "name": "Aeroplane",
@@ -119,6 +119,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "LogitechJoystick",
+                    "id": "589f26e8-c251-4d50-b1fb-26f534b83d31",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ef0fe9ce-dbb1-4c40-a769-ab3e5f4287b2",
+                    "path": "<Joystick>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d75dd949-f9a7-4306-b0c0-824477a40400",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "A/D",
                     "id": "f21f5d9e-af9e-402b-8224-ec1bf5a9076d",
                     "path": "1DAxis",
@@ -210,6 +243,39 @@
                     "name": "positive",
                     "id": "9852f7ad-99cc-488a-a2db-c0c81ca2783c",
                     "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "LogitechJoystick",
+                    "id": "cce2df91-f578-4ef0-a980-7002441f6dc5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "cb5e5795-5383-43c1-ae06-349e6726bb22",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ad642236-db6b-4eda-a04e-9698b5c056fa",
+                    "path": "<HID::Logitech Extreme 3D pro>/stick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -375,6 +441,39 @@
                     "name": "positive",
                     "id": "60303214-8d9b-40db-9f30-7b508e3362be",
                     "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "LogitechJoystick",
+                    "id": "e7a3cbb9-edbb-49b1-b9ec-7dafbe497a7c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "f47685a5-e400-4ba2-91bc-218a3c52235a",
+                    "path": "<HID::Logitech Extreme 3D pro>/rz",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "27f48686-1d74-456a-a662-404ac0d38c41",
+                    "path": "<HID::Logitech Extreme 3D pro>/rz",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

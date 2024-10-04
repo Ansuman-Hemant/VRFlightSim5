@@ -11,6 +11,11 @@ public class BezierCurve : MonoBehaviour
         lineRenderer.positionCount = curveResolution;
         DrawBezierCurve();
     }
+    
+    void Update()
+    {
+        DrawBezierCurve();
+    }
 
     void DrawBezierCurve()
     {

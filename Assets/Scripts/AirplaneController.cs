@@ -128,7 +128,7 @@ public class AirplaneController : MonoBehaviour
         pitch = inputPitch;
 
         joystick.SetJoystickVal(roll, pitch);
-
+        
         //float upperCap = 0.25f;
 
         //if (tooHigh)
@@ -182,5 +182,4 @@ public class AirplaneController : MonoBehaviour
     {
         return rb.velocity.magnitude * Weather.speedMultiplier;
     }
-
 }

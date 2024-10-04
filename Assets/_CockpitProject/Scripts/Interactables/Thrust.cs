@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Thrust : MonoBehaviour
 {
-    [SerializeField] PokeLever thrustLever;
+    PokeLever thrustLever;
 
     public Observer<float> ThrustPercent = new(0);
 
