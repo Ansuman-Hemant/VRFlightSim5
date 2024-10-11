@@ -23,7 +23,7 @@ public static class Weather
     /// </summary>
     public static float GetAltitude(float yPos)
     {
-        float metres = (yPos + 1800) * verticalDistanceMultiplier;
+        float metres = (yPos - planeStartPosY) * verticalDistanceMultiplier + 100;
         return metres;
     }
 
